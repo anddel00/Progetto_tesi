@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risultati di Ricerca</title>
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .roboto {
+      font-family: "Roboto", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #166fc0;
+      margin-bottom: 30px;
+    }
+
+    .search-summary {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      overflow: hidden;
+      font-family: Roboto,sans-serif;
+      border: 4px solid #166fc0;
+    }
+
+    table thead {
+      background-color: #166fc0;
+      color: white;
+      border: 2px solid #166fc0;
+    }
+
+    table th, table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 2px solid #166fc0;
+    }
+    table th {
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #166fc0;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #0e4f8b;
+    }
+
+    .no-results {
+      text-align: center;
+      color: #888;
+      font-size: 1.2rem;
+      margin-top: 30px;
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+  <h1>Risultati di Ricerca</h1>
+  <div class="search-summary">Risultati per: <strong id="query">Ferrara</strong></div>
+
+  <table id="resultsTable">
+    <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Nome</th>
+      <th>Descrizione</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- I risultati saranno inseriti qui dinamicamente -->
+    </tbody>
+  </table>
+
+  <div id="noResults" class="no-results" style="display: none;">Nessun risultato trovato.</div>
+
+  <a href="javascript:window.history.back();" class="back-button">Torna indietro</a>
+</div>
+
+<script>
+  // Simulazione dei risultati di ricerca
+  const searchResults = {
+    "Ferrara": {
+      "Università": [
+        { name: "Università degli Studi di Ferrara (UNIFE)", description:"Università statale"}
+      ],
+      "Facoltà": [
+        { name: "Facoltà di Medicina", description: "Specializzata in scienze mediche e chirurgiche." },
+        { name: "Facoltà di Economia", description: "Economia aziendale e mercati finanziari." }
+      ],
+      "Dipartimento": [
+        { name: "Dipartimento di Ingegneria", description: "Ingegneria elettronica, meccanica e civile." },
+        { name: "Dipartimento di Architettura", description: "Architettura e Design del prodotto industriale." }
+      ]
+    },
+    "Salerno": {
+      "Università": [
+        { name: "Università degli Studi di Salerno (UNISA)", description:"Università statale"}
+      ],
+      "Facoltà": [
+        { name: "Facoltà di Ingegneria", description: "Ingegneria informatica, meccanica, civile e aziendale" },
+        { name: "Facoltà di Lettere", description: "Lettere moderne e studio dei classici" }
+      ],
+      "Dipartimento": [
+        { name: "Dipartimento di Informatica", description: "Ricerca avanzata in intelligenza artificiale e data science." },
+        { name: "Dipartimento di Chimica", description: "Chimica organica e inorganica." }
+      ]
+    }
+  };
+
+  // Recupera il parametro di query dalla URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = urlParams.get("query") || "";
+
+  // Aggiorna il titolo della ricerca
+  document.getElementById("query").textContent = query;
+
+  // Popola la tabella dei risultati raggruppati
+  const resultsTable = document.getElementById("resultsTable").querySelector("tbody");
+  const noResultsDiv = document.getElementById("noResults");
+
+  if (searchResults[query]) {
+    const categories = searchResults[query];
+
+    for (const [category, items] of Object.entries(categories)) {
+      // Aggiunge una riga per la categoria
+      const categoryRow = document.createElement("tr");
+      categoryRow.innerHTML = `
+        <td colspan="3" style="background-color: #f1f1f1; font-weight: bold;">${category}</td>
+      `;
+      resultsTable.appendChild(categoryRow);
+
+      // Aggiunge le righe per gli elementi della categoria
+      items.forEach(item => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td></td>
+          <td>${item.name}</td>
+          <td>${item.description}</td>
+        `;
+        resultsTable.appendChild(row);
+      });
+    }
+  } else {
+    noResultsDiv.style.display = "block";
+  }
+</script>
+</body>
+</html>

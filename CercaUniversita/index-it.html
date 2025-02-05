@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="it">
+
+<!--Foglio CSS-->
+<link rel="stylesheet" href="styles.css">
+<!--Caratteri Google fonts-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerca Università</title>
+</head>
+<body>
+<!-- Intestazione -->
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <a href="https://www.universitaly.it/">
+      <img src="img/group-2-1_2x.CBTuw8-X.png" alt="UniversItaly">
+        </a>
+    </div>
+    <h1 class="title">Cerca Università</h1>
+    <div class="logo-mur">
+      <a href="https://www.mur.gov.it/it">
+      <img src="img/mur-logo-1_2x.BfHYOiJm.png" alt="MUR">
+      </a>
+    </div>
+  </div>
+
+  <div class="linea">  <!--Linea nera-->
+
+  </div>
+  <p class="subtitle">
+    CercaUniversità è un servizio che aggrega tutte le ricerche possibili che riguardano l'Università,
+    dai corsi di laurea ai finanziamenti, dai docenti agli studenti universitari, dai bandi alle statistiche.
+  </p>
+</header>
+
+<!-- Menu di navigazione sticky -->
+<div class="nav-container">
+  <nav class="nav-italiano">
+    <a href="#bandi_section"><button class="button" id="bandi_button"><b>Bandi</b></button></a>
+    <a href="#reclumtamento_section"><button class="button" id="reclutamento_button"><b>Reclutamento</b></button></a>
+    <button class="button"><b>Progetti finanziati</b></button>
+    <button class="button"><b>Dottorati e offerte formative</b></button>
+    <button class="button"><b>Ricerche rapide</b></button>
+    <a class="language_button" href="index-en.html">
+      <img src="img/flag-en.png" alt="English">
+    </a>
+  </nav>
+</div>
+<div class="first_section">
+  <h2 class="osservatorio_title">Un pò di dati con l'Osservatorio</h2>
+  <div class="osservatorio_card">
+    <div class="card">
+      <h3><b>1.234</b></h3>
+      <p>Dottorati di ricerca</p>
+    </div>
+    <div class="card">
+      <h3><b>113.440</b></h3>
+      <p>Personale docente e ricercatore</p>
+    </div>
+    <div class="card">
+      <h3><b>1.909.360</b></h3>
+      <p>Studenti iscritti </p>
+    </div>
+    <div class="card">
+      <h3><b>317.268</b></h3>
+      <p>Nuove immatricolazioni</p>
+    </div>
+    <div class="card">
+      <h3><b>366.061</b></h3>
+      <p>Laureati</p>
+    </div>
+    <div class="card">
+      <h3><b>€12.345.678</b></h3>
+      <p>Finanziamenti totali</p>
+    </div>
+  </div>
+  <div class="statistiche_description">
+  <p>Visita il Portale dei dati dell'istruzione superiore per scoprire nel dettaglio le statistiche su immatricolazioni e
+    carriere degli studenti universitari italiani. </p>
+    <a href="https://ustat.mur.gov.it/">
+      <button class="statistiche_link"><b>Vai al sito</b></button></a>
+  </div>
+</div>
+<div class="second_section">
+  <div class id="bandi_section">
+  <h2 class id="bandi_title"><b>Bandi</b></h2>
+    <p class="bandi_description">I bandi di concorso delle Università e degli Enti di ricerca italiani (Legge 30 Dicembre 2010, n°240)</p>
+    <a href="https://bandi.mur.gov.it/"><button class="bandi_link"><b>Scopri di più</b></button></a>
+  </div>
+  <div class id="reclutamento_section">
+    <h2 class id="reclutamento_title"><b>Reclutamento</b></h2>
+    <p class="reclutamento_description">Visita il sito pubblico della Valutazione Comparativa per il reclutamento dei Professori e dei Ricercatori Universitari</p>
+    <a href="https://reclutamento.mur.gov.it/"><button class="reclutamento_link"><b>Vai al sito</b></button></a>
+    </div>
+  <div class id="progetti_section">
+    <h2 class id="progetti_title"><b>Progetti finanziati</b></h2>
+    <p class="progetti_description">È possibile consultare i finanziamenti PRIN nel sito dedicato ed effettuare ricerche per anno, aree, atenei.</p>
+    <a href="https://prin.mur.gov.it/"><button class="progetti_link"><b>Vai al sito</b></button></a>
+  </div>
+  </div>
+<div class="third_section" id="third_section">
+  <div class="offerte_card">
+    <div class="card_two">
+      <h3 class="offerte_title">Dottorati</h3>
+      <p>Cerca i dottorati che desideri, filtrando la ricerca per università e/o per settore scientifico disciplinare.</p>
+      <a href="https://cercauniversita.mur.gov.it/php5/dottorati/cerca.php"><button class="card_button"><b>Vai alla ricerca</b></button></a>
+    </div>
+    <div class="card_two">
+      <h3 class="offerte_title">Offerta formativa fino al 2012</h3>
+      <p>Trova tutte le ricerche formative fino all'anno 2012. Ricerca per tipo di laurea, città e area di studi.</p>
+      <a href="https://offf.cineca.it/pubblico.php/ricerca/show_form/p/cercauniv"><button class="card_button"><b>Vai alla ricerca</b></button></a>
+    </div>
+    <div class="card_two">
+      <h3 class="offerte_title">Offerta formativa dal 2013</h3>
+      <p>Per conoscere l'offerta formativa attuale su tutto il territorio italiano, visita il sito dedicato di UniversItaly:</p>
+      <a class="logo_button" href="https://www.universitaly.it/" target="_blank" rel="noopener noreferrer">
+        <img src="img/group-2.SsA66jW1.png" alt="UniversItaly Logo">
+      </a>
+    </div>
+  </div>
+</div>
+<div class="fourth_section" id="fourth_section">
+  <h3 class="rapide_title">Ricerche rapide</h3>
+  <div class="rapide_section">
+    <!-- Card Docenti -->
+    <div class="rapide_card">
+      <div class="rapide_card_inner">
+        <h3>Docenti</h3>
+        <p>Cerca informazioni sui docenti delle università, inclusi curriculum, pubblicazioni e orari di ricevimento.</p>
+        <div class="search_bar">
+          <input type="text" placeholder="Cerca docente...">
+          <button>
+            <img src="img/lente_bianca.png" alt="Cerca">
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Card Strutture -->
+    <div class="rapide_card">
+      <div class="rapide_card_inner">
+        <h3>Strutture</h3>
+        <p>Esplora le strutture universitarie: biblioteche, laboratori, aule e spazi dedicati agli studenti.</p>
+        <div class="search_bar">
+          <input type="text" id="searchInput" placeholder="Cerca struttura..." onkeydown="handleKeyPress(event)" >
+          <button onclick="redirectToResults()">
+            <img src="img/lente_bianca.png" alt="Cerca">
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Card Assegnisti -->
+    <div class="rapide_card">
+      <div class="rapide_card_inner">
+        <h3>Assegnisti</h3>
+        <p>Trova informazioni sugli assegnisti di ricerca e sui loro progetti in corso.</p>
+        <div class="search_bar">
+          <input type="text" placeholder="Cerca assegnista...">
+          <button>
+            <img src="img/lente_bianca.png" alt="Cerca">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="scroll_to_top" id="scroll_to_top" title="Torna su">
+  <img src="img/freccia_su_bianca.png" alt="Cerca">
+</button>
+<div class="footer">
+  <span>Ministero dell'Università e della Ricerca</span>
+  <span>In collaborazione con CINECA</span>
+</div>
+</body>
+<script>
+  //************  Animazione menu nav  **************
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".nav-italiano .button");
+    const sections = [
+      document.querySelector("#bandi_section"),
+      document.querySelector("#reclutamento_section"),
+      document.querySelector("#progetti_section"),
+      document.querySelector("#third_section"),
+      document.querySelector("#fourth_section"),
+    ];
+
+    // Funzione per rimuovere tutte le classi "active"
+    const removeActiveClasses = () => {
+      buttons.forEach((button) => button.classList.remove("active"));
+    };
+
+    // Funzione per impostare il bottone attivo in base alla sezione visibile
+    const setActiveButton = () => {
+      let activeFound = false;
+
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const isVisible =
+          rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+
+        if (isVisible) {
+          removeActiveClasses();
+          if (buttons[index]) buttons[index].classList.add("active");
+          activeFound = true;
+        }
+      });
+
+      // Se siamo in cima alla pagina e nessuna sezione è attiva
+      if (!activeFound && window.scrollY === 0) {
+        removeActiveClasses();
+      }
+    };
+    // Gestione il clic sui bottoni
+    buttons.forEach((button, idx) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault(); // Evita lo scroll automatico del link
+
+        removeActiveClasses();
+        button.classList.add("active");
+
+        // Scorrimento alla sezione corrispondente
+        if (sections[idx]) {
+          sections[idx].scrollIntoView({behavior: "smooth"});
+        }
+      });
+    });
+// Mostra o nasconde il pulsante in base allo scroll
+    window.addEventListener('scroll', function () {
+      const scrollTopButton = document.getElementById('scroll_to_top');
+      if (window.scrollY > 200) {
+        scrollTopButton.classList.remove('hidden');
+      } else {
+        scrollTopButton.classList.add('hidden');
+      }
+    });
+
+// Scrolla verso l'inizio della pagina quando si clicca sul pulsante
+    document.getElementById('scroll_to_top').addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    // Assegnazione dell'evento scroll
+    window.addEventListener("scroll", setActiveButton);
+
+    // Imposta il primo bottone attivo all'avvio, se necessario
+    setActiveButton();
+  });
+  const scrollButton = document.querySelector('.scroll-right-button');
+  const cardContainer = document.querySelector('.osservatorio_card');
+
+  // Funzione per far scorrere il contenitore verso destra
+  scrollButton.addEventListener('click', () => {
+    cardContainer.scrollBy({
+      left: cardContainer.offsetWidth, // Scorri della larghezza del contenitore
+      behavior: 'smooth', // Animazione fluida
+    });
+  });
+  //animazione card
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".rapide_card");
+
+    // Controllo se il codice si sta eseguendo
+    console.log("Script caricato correttamente, trovate", cards.length, "card");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log("Card visibile:", entry.target);
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target); // Evita di attivarlo più volte
+          }
+        });
+      },
+      { threshold: 0.2 } // La card deve essere visibile almeno per il 20%
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+
+  function redirectToResults() {
+    const input = document.getElementById("searchInput").value.trim();
+    if (input) {
+      // Reindirizza alla pagina dei risultati con il valore come parametro
+      window.location.href = `results.html?query=${encodeURIComponent(input)}`;
+    } else {
+      alert("Inserisci una città per cercare!");
+    }
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      redirectToResults(); // Avvia la ricerca quando si preme "Invio"
+    }
+  }
+
+</script>
+</html>
