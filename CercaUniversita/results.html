@@ -85,6 +85,27 @@
       font-size: 1.2rem;
       margin-top: 30px;
     }
+
+    a.university-link {
+      text-decoration: none; /* Rimuove la sottolineatura */
+      color: #007BFF; /* Colore blu moderno */
+      font-weight: bold; /* Grassetto per evidenziare */
+      padding: 8px 12px; /* Spaziatura interna per maggiore leggibilità */
+      border-radius: 5px; /* Angoli arrotondati */
+      transition: background-color 0.3s ease, color 0.3s ease; /* Transizioni fluide */
+    }
+
+    /* Stile al passaggio del mouse */
+    a.university-link:hover {
+      background-color: #007BFF; /* Cambia il colore dello sfondo */
+      color: white; /* Colore del testo bianco */
+    }
+
+    /* Stile al clic */
+    a.university-link:active {
+      background-color: #0056b3; /* Sfondo più scuro al clic */
+      color: white;
+    }
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,7 +117,6 @@
 <div class="container">
   <h1>Risultati di Ricerca</h1>
   <div class="search-summary">Risultati per: <strong id="query">Ferrara</strong></div>
-
   <table id="resultsTable">
     <thead>
     <tr>
@@ -106,44 +126,49 @@
     </tr>
     </thead>
     <tbody>
-    <!-- I risultati saranno inseriti qui dinamicamente -->
     </tbody>
   </table>
 
   <div id="noResults" class="no-results" style="display: none;">Nessun risultato trovato.</div>
-
   <a href="javascript:window.history.back();" class="back-button">Torna indietro</a>
 </div>
-
 <script>
   // Simulazione dei risultati di ricerca
   const searchResults = {
     "Ferrara": {
       "Università": [
-        { name: "Università degli Studi di Ferrara (UNIFE)", description:"Università statale"}
+        {
+          name: "Università degli Studi di Ferrara (UNIFE)",
+          description: "Università statale",
+          link: "https://www.unife.it",
+        },
       ],
       "Facoltà": [
         { name: "Facoltà di Medicina", description: "Specializzata in scienze mediche e chirurgiche." },
-        { name: "Facoltà di Economia", description: "Economia aziendale e mercati finanziari." }
+        { name: "Facoltà di Economia", description: "Economia aziendale e mercati finanziari." },
       ],
       "Dipartimento": [
         { name: "Dipartimento di Ingegneria", description: "Ingegneria elettronica, meccanica e civile." },
-        { name: "Dipartimento di Architettura", description: "Architettura e Design del prodotto industriale." }
-      ]
+        { name: "Dipartimento di Architettura", description: "Architettura e Design del prodotto industriale." },
+      ],
     },
     "Salerno": {
       "Università": [
-        { name: "Università degli Studi di Salerno (UNISA)", description:"Università statale"}
+        {
+          name: "Università degli Studi di Salerno (UNISA)",
+          description: "Università statale",
+          link: "https://www.unisa.it",
+        },
       ],
       "Facoltà": [
         { name: "Facoltà di Ingegneria", description: "Ingegneria informatica, meccanica, civile e aziendale" },
-        { name: "Facoltà di Lettere", description: "Lettere moderne e studio dei classici" }
+        { name: "Facoltà di Lettere", description: "Lettere moderne e studio dei classici" },
       ],
       "Dipartimento": [
         { name: "Dipartimento di Informatica", description: "Ricerca avanzata in intelligenza artificiale e data science." },
-        { name: "Dipartimento di Chimica", description: "Chimica organica e inorganica." }
-      ]
-    }
+        { name: "Dipartimento di Chimica", description: "Chimica organica e inorganica." },
+      ],
+    },
   };
 
   // Recupera il parametro di query dalla URL
@@ -161,26 +186,40 @@
     const categories = searchResults[query];
 
     for (const [category, items] of Object.entries(categories)) {
-      // Aggiunge una riga per la categoria
-      const categoryRow = document.createElement("tr");
-      categoryRow.innerHTML = `
-        <td colspan="3" style="background-color: #f1f1f1; font-weight: bold;">${category}</td>
-      `;
-      resultsTable.appendChild(categoryRow);
-
-      // Aggiunge le righe per gli elementi della categoria
-      items.forEach(item => {
+      // Aggiunge una riga per la categoria con il primo elemento
+      items.forEach((item, index) => {
         const row = document.createElement("tr");
-        row.innerHTML = `
-          <td></td>
-          <td>${item.name}</td>
+
+        // Se è il primo elemento della categoria, crea la cella con rowspan
+        if (index === 0) {
+          row.innerHTML = `
+          <td rowspan="${items.length}" style="background-color: #f1f1f1; font-weight: bold;">${category}</td>
+          <td>
+            ${
+            item.link
+              ? `<a href="${item.link}" target="_blank" class="university-link">${item.name}</a>`
+              : item.name
+          }
+          </td>
           <td>${item.description}</td>
         `;
+        } else {
+          // Le righe successive non avranno la prima colonna
+          row.innerHTML = `
+          <td>
+            ${
+            item.link
+              ? `<a href="${item.link}" target="_blank" class="university-link">${item.name}</a>`
+              : item.name
+          }
+          </td>
+          <td>${item.description}</td>
+        `;
+        }
+
         resultsTable.appendChild(row);
       });
     }
-  } else {
-    noResultsDiv.style.display = "block";
   }
 </script>
 </body>
