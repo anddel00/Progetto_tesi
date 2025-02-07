@@ -371,28 +371,36 @@ body {
   color: #166fc0;
   margin-top: 20px;
 }
-.logo_button {
-  display: inline-block; /* Per trattare il logo come elemento inline bloccato */
-  margin-top: 45px; /* Spazio sopra il bottone */
-  padding: 5px 0px;
-  border: 2px solid #166fc0; /* Border di default */
-  border-radius: 10px; /* Bordo arrotondato */
-  transition: all 0.3s ease; /* Transizione morbida per l'effetto hover */
-  width: 300px;
-
-}
-
 .logo_button:hover {
   border: 2px solid #166fc0; /* Cambia colore del bordo al passaggio del mouse */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra */
   transform: scale(1.05); /* Leggero ingrandimento */
 }
 
+.logo_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Adatta alla card */
+  max-width: 250px; /* Evita che sia troppo grande */
+  padding: 10px;
+  margin: 0 auto; /* Lo centra */
+  border: 2px solid #166fc0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Evita che l'immagine esca */
+}
+
 .logo_button img {
-  width: 135px; /* Dimensione del logo */
+  max-width: 100%; /* L'immagine non esce dai bordi */
   height: auto; /* Mantiene le proporzioni */
-  display: block; /* Centra il logo all'interno del bottone */
-  margin: 0px auto; /* Assicura il centraggio orizzontale */
+  display: block; /* Evita spazi vuoti */
+}
+
+@media (max-width: 480px) {
+  .logo_button {
+    max-width: 80%; /* Su schermi piccoli, occupa quasi tutta la card */
+  }
 }
 .language_button {
   display: flex; /* Attiva Flexbox */
@@ -435,8 +443,22 @@ body {
   margin-top: 70px;
   margin-bottom: 10px;
   box-shadow: 0 8px 6px rgba(0, 0, 0, 0.2);
-  width: 300px;
+}
 
+.card_button {
+  width: 100%; /* Il bottone si adatta alla larghezza della card */
+  max-width: 280px; /* Evita che diventi troppo largo su schermi grandi */
+  padding: 15px 20px; /* Aggiunge più respiro al testo */
+  text-align: center;
+}
+
+/* Adattamento per schermi piccoli */
+@media (max-width: 480px) {
+  .card_button {
+    max-width: 90%; /* Occupa quasi tutta la larghezza della card */
+    font-size: 14px;
+    padding: 12px 15px;
+  }
 }
 .card_button:hover{
   background-color: white;
@@ -525,18 +547,38 @@ body {
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.search_bar button img {
-  width: 20px;
-  height: 20px;
-}
 .search_bar button:hover {
   background-color: #124d8a;
+}
+.search_bar button {
+  width: 45px; /* Larghezza più generosa */
+  height: 45px; /* Altezza proporzionata */
+  min-width: 45px; /* Evita che venga schiacciato */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_bar button img {
+  width: 22px; /* Riduce leggermente l'icona per evitare che tocchi i bordi */
+  height: 22px;
+}
+
+/* Adattamento per schermi piccoli */
+@media (max-width: 480px) {
+  .search_bar button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .search_bar button img {
+    width: 18px;
+    height: 18px;
+  }
 }
 .footer {
   background-color: #124d8a; /* Blu ombreggiato */
@@ -584,6 +626,177 @@ body {
   transform: translateY(20px); /* Nasconde il pulsante */
   pointer-events: none;
 }
+
+@media (max-width: 1024px) {
+  .header-container {
+    flex-direction: row; /* Dispone logo e titolo in colonna */
+    text-align: center;
+  }
+
+  .title {
+    font-size: 42px; /* Riduce la dimensione del titolo */
+    margin-right: 0;
+  }
+
+  .logo img{
+    height: 25px; /* Riduce la dimensione dei loghi */
+    width: 75px;
+    margin: auto;
+  }
+  .logo-mur img{
+    height: 30px; /* Riduce la dimensione dei loghi */
+    width: 30px;
+    margin: 5px;
+  }
+
+  .nav-italiano {
+    flex-wrap: wrap; /* Permette di andare a capo */
+    gap: 20px; /* Riduce lo spazio tra i bottoni */
+  }
+  .nav-inglese{
+    flex-wrap: wrap; /* Permette di andare a capo */
+    gap: 20px; /* Riduce lo spazio tra i bottoni */
+  }
+
+  .button {
+    padding: 8px 20px; /* Riduce le dimensioni dei bottoni */
+    font-size: 16px;
+  }
+
+  .osservatorio_card {
+    flex-wrap: wrap; /* Le card vanno a capo se serve */
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 42px; /* Riduce ulteriormente il titolo */
+  }
+
+  .nav-italiano {
+    flex-direction: column; /* Menu in colonna */
+    align-items: center;
+  }
+
+  .nav-inglese{
+    flex-direction: column; /* Menu in colonna */
+    align-items: center;
+  }
+
+  .button {
+    width: 90%; /* Bottoni larghi quasi tutta la pagina */
+    text-align: center;
+  }
+
+  .osservatorio_card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    min-width: 90%; /* Card più larghe */
+  }
+
+  .rapide_card {
+    width: 90%;
+  }
+
+  .footer {
+    flex-direction: column; /* Il footer va in colonna */
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .button {
+    font-size: 14px;
+    padding: 6px 15px;
+  }
+
+  .osservatorio_card {
+    flex-direction: column;
+  }
+
+  .card {
+    min-width: 100%;
+  }
+
+  .rapide_card {
+    width: 100%;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}
+
+.menu-toggle {
+  display: none; /* Nasconde il menu burger di default */
+  background-color: #166fc0;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  .nav-container {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #166fc0;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Scorrimento fluido su iOS */
+  }
+.nav-inglese{
+  display: flex !important;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: nowrap; /* Evita che i bottoni vadano su più righe */
+  margin-left: 20px;
+}
+  .nav-italiano {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: nowrap; /* Evita che i bottoni vadano su più righe */
+    margin-left: 20px;
+  }
+
+  .nav-italiano .button {
+    padding: 6px 10px; /* Riduce il padding per evitare testo fuori */
+    font-size: 14px; /* Mantiene leggibile senza occupare troppo spazio */
+    max-width: fit-content; /* Impedisce bottoni troppo larghi */
+    min-width: 80px;
+    flex-shrink: 0;
+    white-space: nowrap; /* Evita che il testo vada a capo */
+    overflow: hidden; /* Impedisce il testo di uscire fuori */
+    text-overflow: ellipsis; /* Aggiunge i tre puntini se il testo è troppo lungo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-inglese .button{
+    padding: 6px 10px; /* Riduce il padding per evitare testo fuori */
+    font-size: 14px; /* Mantiene leggibile senza occupare troppo spazio */
+    max-width: fit-content; /* Impedisce bottoni troppo larghi */
+    min-width: 80px;
+    flex-shrink: 0;
+    white-space: nowrap; /* Evita che il testo vada a capo */
+    overflow: hidden; /* Impedisce il testo di uscire fuori */
+    text-overflow: ellipsis; /* Aggiunge i tre puntini se il testo è troppo lungo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 
 
 

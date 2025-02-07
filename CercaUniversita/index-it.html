@@ -284,7 +284,7 @@
           }
         });
       },
-      { threshold: 0.2 } // La card deve essere visibile almeno per il 20%
+      {threshold: 0.2} // La card deve essere visibile almeno per il 20%
     );
 
     cards.forEach((card) => {
@@ -307,6 +307,17 @@
       redirectToResults(); // Avvia la ricerca quando si preme "Invio"
     }
   }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".nav-italiano");
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener("click", function () {
+        nav.classList.toggle("active");
+      });
+    }
+  });
 
 </script>
 </html>
